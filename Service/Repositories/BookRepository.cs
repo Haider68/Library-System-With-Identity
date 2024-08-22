@@ -71,7 +71,7 @@ namespace Service.Repositories
             //    var book = (Book)books.Where(b => b.Id == bookid);
             //    author.Books.Add(book);
             //}
-            Console.WriteLine("dfdf");
+           
 
             return book;
         }

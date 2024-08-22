@@ -52,6 +52,7 @@ namespace Service.Repositories
         public void Delete(int id)
         {
             var studentData = GetById(id).Result;
+            if(studentData!= null)
             Delete(studentData);
            
         }

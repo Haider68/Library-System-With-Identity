@@ -19,11 +19,17 @@ namespace Service.Repositories
 
         public async Task<Address> Add(AddressDto addressDto)
         {
-            var address = Entities(addressDto);
-            if (address != null)
-                await Add(address);
-
-            return address;
+            try
+            {
+                var address = Entities(addressDto);
+                if (address != null)
+                    await Add(address);
+                return address;
+            }
+            catch(Exception ex)
+            {
+                throw;
+            }
         }
         public async Task<List<Address>> GetAll()
         {

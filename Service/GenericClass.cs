@@ -17,7 +17,7 @@ namespace Service
         {
             _context = context;
         }
-        
+     
         public async Task<T> Add(T value)
         {
             Entity().Add(value);
@@ -30,6 +30,10 @@ namespace Service
             var value =  Entity().Find(id);
             
             return value;
+        }
+        public T GetFirstOrDefault(Func<T, bool> predicate)
+        {
+            return Entity().FirstOrDefault(predicate);
         }
         public IEnumerable<T> GetAllIncluding(params Expression<Func<T, object>>[] includeProperties)
         {

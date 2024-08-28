@@ -18,8 +18,15 @@ namespace IdentityProject.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(AddressDto addressDto)
         {
-         await _address.Add(addressDto);
-            return Ok();
+            try
+            {
+                await _address.Add(addressDto);
+                return Ok();
+            }
+            catch(Exception ex)
+            {
+                throw;
+            }
         }
         [HttpGet]
         public async Task<IActionResult> GetAll()

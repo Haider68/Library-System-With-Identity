@@ -9,7 +9,7 @@ namespace Service.Interface
 {
     public interface IBorrowBook
     {
-        string Add(int bookId, int studentId);
+       Task<string> Add(int bookId, int studentId);
         string Return(int bookId, int studentId);
         //List<object> GetBorrowBooks(DateDto dateDto);
         List<object> GetReturnBook(DateDto dateDto);

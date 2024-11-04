@@ -19,11 +19,11 @@ namespace IdentityProject.Controllers
             _borrowBook = borrowBook;
         }
         [HttpPost("AddBorrowBooks")]
-        public IActionResult Add(int bookId, int studentId)
+        public async Task<IActionResult> Add(int bookId, int studentId)
         {
             try
             {
-                string result = _borrowBook.Add(bookId, studentId);
+                string result =await _borrowBook.Add(bookId, studentId);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -44,7 +44,7 @@ namespace IdentityProject.Controllers
             }
         }
 
-        [HttpGet("GetBorrowBooks")]
+        [HttpPost("GetBorrowBooks")]
         public IActionResult get(DateDto dateDto)
         {
             try
@@ -58,7 +58,7 @@ namespace IdentityProject.Controllers
             }
         }
 
-        [HttpGet("GetReturnBooks")]
+        [HttpPost("GetReturnBooks")]
         public IActionResult GetReturnBook(DateDto dateDto)
         {
             try
